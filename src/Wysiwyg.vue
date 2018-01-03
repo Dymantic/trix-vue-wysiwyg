@@ -17,7 +17,7 @@
           </div>
           
       </div>
-      <trix-editor ref="trix" input="dymantic-wysiwyg"></trix-editor>
+      <trix-editor ref="trix" input="dymantic-wysiwyg" :class="{'taller': taller}"></trix-editor>
       <input type="hidden" id="dymantic-wysiwyg" :name="name">
   </div>
 </template>
@@ -56,6 +56,10 @@ export default {
     "max-file-size": {
       type: Number,
       default: 5
+    },
+    taller: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -151,8 +155,7 @@ export default {
         )
         .then(({ data }) => {
           attachment.setAttributes({
-            url: data.url,
-            href: data.href
+            url: data.url
           });
         })
         .catch(() => this.$emit("attachment-rejected", "Upload failed"));
@@ -225,13 +228,31 @@ export default {
   }
 }
 
-trix-editor > * {
-  max-width: 800px;
-  margin: 0 auto;
+trix-editor {
+  min-height: 150px;
+
+  &.taller {
+    min-height: 500px;
+  }
+
+  & > * {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
   img {
+    display: block;
     max-width: 100%;
     height: auto;
+    margin: 1em auto;
+  }
+
+  figcaption {
+    text-align: center;
+  }
+
+  figure {
+    position: relative;
   }
 }
 </style>
