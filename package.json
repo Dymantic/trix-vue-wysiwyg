@@ -1,21 +1,24 @@
 {
   "name": "@dymantic/trix-vue-wysiwyg",
-  "version": "0.0.1",
-  "description":
-    "Wysiwyg editor as vue component using Basecamps's Trix editor",
+  "version": "0.0.2",
+  "description": "Wysiwyg editor as vue component using Basecamps's Trix editor",
   "main": "src/index.js",
   "scripts": {
-    "test":
-      "mocha-webpack --webpack-config webpack.config.js --require tests/setup.js tests/*.spec.js",
-    "watch":
-      "mocha-webpack --webpack-config webpack.config.js --watch --require tests/setup.js tests/*.spec.js"
+    "test": "mocha-webpack --webpack-config webpack.config.js --require tests/setup.js tests/*.spec.js",
+    "watch": "mocha-webpack --webpack-config webpack.config.js --watch --require tests/setup.js tests/*.spec.js"
   },
-  "keywords": ["vuejs", "trix", "wysiwyg"],
+  "keywords": [
+    "vuejs",
+    "trix",
+    "wysiwyg"
+  ],
   "author": "Dymantic Design",
   "license": "ISC",
   "babel": {
     "plugins": [],
-    "ignore": ["index.js"]
+    "ignore": [
+      "index.js"
+    ]
   },
   "repository": {
     "type": "git",
