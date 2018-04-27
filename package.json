@@ -1,6 +1,6 @@
 {
   "name": "@dymantic/trix-vue-wysiwyg",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Wysiwyg editor as vue component using Basecamps's Trix editor",
   "main": "src/index.js",
   "scripts": {
