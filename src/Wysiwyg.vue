@@ -26,6 +26,7 @@
 import Trix from "trix";
 import "trix/dist/trix.css";
 import axios from "axios";
+import { setTimeout } from "timers";
 
 export default {
   model: {
@@ -89,15 +90,21 @@ export default {
   },
 
   mounted() {
-    this.editor.insertHTML(this.initContent);
-    this.attachListeners();
-    if (this.saveTimer) {
-      this.setSaveTimer(this.saveTimer);
-    }
     Trix.config.attachments.preview.caption = { name: false, size: false };
+    this.$refs.trix.addEventListener("trix-initialize", ev => {
+      this.init();
+    });
   },
 
   methods: {
+    init() {
+      this.editor.insertHTML(this.initContent);
+      this.attachListeners();
+      if (this.saveTimer) {
+        this.setSaveTimer(this.saveTimer);
+      }
+    },
+
     attachListeners() {
       this.$refs.trix.addEventListener("trix-change", ev => {
         this.$emit("input", document.querySelector("#dymantic-wysiwyg").value);
